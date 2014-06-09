@@ -1,0 +1,339 @@
+digraph G  {
+// works good in dot
+//layout=neato;
+splines=true;
+//splines=false;
+//graph [size="7.75,10.25"];
+graph [size="20,20"];
+graph [fontsize=10 fontname="Verdana" compound=true];
+//sep ="+25,25";
+sep ="+10,10";
+ranksep=1;
+nodesep=.25;
+//nodesep=.25;
+rankdir=LR;
+//ranksep=3;
+//nodesep=2;
+//node [fontsize=11];
+overlap=false;
+//graph [ overlap=scalexy];
+//graph [ overlap=scale];
+edge[weight=1000];
+edge[concentrate=true];
+//nodesep=0.6;
+//nodesep=5;
+//compount=true;
+//clusterrank=local;
+concentrate=true;
+//rank=min;
+rank=source;
+
+node [shape=record,width=.1,height=.1];
+
+
+	subgraph cluster_0 {
+		label="Stone Cutter";
+		"Block";
+	}
+	"Raw Stone" -> "Block";
+
+	"Log" -> "Plank";
+	"Plank" -> "Chair" [label=4];
+	"Plank" -> "Workbench"  [label="6"];
+	"Raw Stone" -> "Chisel"  [label="2"];
+
+	subgraph cluster_2 {
+		label="Sawmill";
+//		"Plank";
+	}
+	subgraph cluster_1a {
+		label="Crude Workshop / Sawmill";
+		"Plank" ;
+	}
+	subgraph cluster_1b {
+		label="Crude Workshop / Carpenter";
+		"Workbench";
+		"Chair";
+	}
+	subgraph cluster_1c {
+		label="Crude Workshop / Stonemason";
+		"Chisel";
+	}
+	subgraph cluster_4a {
+		label="Carpenter (Furniture)";
+		"Stick";
+		"Loom";
+		"Table";
+		"Bed";
+		"Wood Door";
+		"Torch";
+		"Training Dummy";
+		"Crate";
+		"Barrel";
+		"Four Poster Bed";
+		"Bed Frame";
+		"Four Poster Bed Frame";
+		"Wheelbarrow";
+	}
+	subgraph cluster_4b {
+		label="Carpenter (Weapons)";
+		"Haft";
+		"Hilt";
+		"Wooden Shield";
+	}
+	"Plank" -> "Stick" [label="1/2"];
+	"Plank" -> "Loom" [label=4];
+	"Stick" -> "Loom" [label=4];
+	"Stick" -> "Haft";
+	"Stick" -> "Hilt";
+	"Plank" -> "Torch";
+	"Coal" -> "Torch";
+	"Plank" -> "Wooden Shield" [label=3];
+	"Plank" -> "Training Dummy";
+	"Stick" -> "Training Dummy" [label=2];
+	"Plank" -> "Crate" [label=4];
+	"Plank" -> "Barrel" [label=4];
+	"Plank" -> "Table" [label=4];
+	"Stick" -> "Table" [label=4];
+	"Plank" -> "Wood Door" [label=4];
+	"Bed Frame" -> "Bed";
+	"Mattress" -> "Bed";
+	"Four Poster Bed Frame" -> "Four Poster Bed";
+	"Mattress" -> "Four Poster Bed";
+	"Plank" -> "Bed Frame" [label=4];
+	"Plank" -> "Four Poster Bed Frame" [label=4];
+	"Log" -> "Wheelbarrow" [label=4];
+	"Stick" -> "Wheelbarrow" [label=2];
+
+	subgraph cluster_5 {
+		label="Blacksmith";
+		"Cutting Wheel";
+		"Pickaxe Head";
+		"Pickaxe";
+		"Felling Axe Head";
+		"Felling Axe";
+		"File";
+		"Ball-peen Hammer";
+	}
+	"Bar" -> "Cutting Wheel";
+	"Bar" -> "Pickaxe Head";
+	"Pickaxe Head" -> "Pickaxe";
+	"Haft" -> "Pickaxe";
+	"Bar" -> "Felling Axe Head";
+	"Felling Axe Head" -> "Felling Axe";
+	"Haft" -> "Felling Axe";
+	"Bar" -> "File";
+	"Bar" -> "Ball-peen Hammer";
+
+	subgraph cluster_6 {
+		label="Forge";
+		"Bar";
+		"Anvil";
+	}
+	"Ore" -> "Bar" [label=2];
+	"Coal" -> "Bar";
+	"Sliver" -> "Bar" [label=10];
+	"Bar" -> "Anvil" [label=8];
+
+	subgraph cluster_7 {
+		label="Loom";
+		"Bolt of Cloth";
+	}
+	"Fiber" -> "Bolt of Cloth";
+
+	subgraph cluster_8a {
+		label="Tailor (Furniture)";
+		"Mattress";
+	}
+	subgraph cluster_8b {
+		label="Tailor";
+		"Bag";
+		"Bandage";
+		"String";
+		"Padding";
+		"Ammo Pouch";
+	}
+	"Bolt of Cloth" -> "Bag";
+	"String" -> "Bag";
+	"Bolt of Cloth" -> "Bandage";
+	"Bolt of Cloth" -> "String";
+	"Bolt of Cloth" -> "Padding";
+	"Fiber" -> "Padding";
+	"String" -> "Padding";
+	"Bolt of Cloth" -> "Mattress" [label=4];
+	"String" -> "Mattress";
+	"Straw" -> "Mattress" [label=2];
+	"Bolt of Cloth" -> "Ammo Pouch";
+	"String" -> "Ammo Pouch";
+
+	subgraph cluster_9 {
+		label="Stone Mason";
+		"Stone Door";
+		"Sawblade";
+		"Knife";
+		"Knife Blade";
+		"Hearth";
+		"Mold";
+		"Furnace";
+//		"Musket Round";
+	}
+	"Block" -> "Stone Door" [label=4];
+	"Block" -> "Sawblade";
+	"Block" -> "Knife Blade";
+	"Knife Blade" -> "Knife";
+	"Hilt" -> "Knife";
+	"Block" -> "Hearth" [label=6];
+	"Block" -> "Mold" [label=4];
+	"Block" -> "Furnace" [label=10];
+	"Block" -> "Bolt";
+//	"Block" -> "Musket Round";
+
+	subgraph cluster_10 {
+		label="Masonry";
+		"Stone Sword";
+		"Stone Hand Axe";
+		"Stone Hammer";
+	}
+	"Block" -> "Stone Sword";
+	"Hilt" -> "Stone Sword";
+	"Block" -> "Stone Hand Axe";
+	"Haft" -> "Stone Hand Axe";
+	"Block" -> "Stone Hammer";
+	"Haft" -> "Stone Hammer";
+
+	subgraph cluster_11 {
+		label="Weaponsmith";
+		"Sword";
+		"Hand Axe";
+		"Hammer";
+		"Sword Blade";
+		"Hand Axe Head";
+		"Hammer Head";
+		"Claymore Blade";
+		"Claymore";
+		"Battle Axe Head";
+		"Battle Axe";
+		"Warhammer Head";
+		"Warhammer";
+		"Shield Boss";
+		"Shield Backing";
+		"Shield";
+		"Tower Shield Backing";
+		"Tower Shield";
+
+	}
+	"Sword Blade" -> "Sword";
+	"Hilt" -> "Sword";
+	"Hand Axe Head" -> "Hand Axe";
+	"Haft" -> "Hand Axe";
+	"Hammer Head" -> "Hammer";
+	"Haft" -> "Hammer";
+	"Bar" -> "Sword Blade" [label=5];
+	"Bar" -> "Hand Axe Head" [label=5];
+	"Bar" -> "Hammer Head" [label=5];
+	"Bar" -> "Claymore Blade" [label=8];
+	"Claymore Blade" -> "Claymore";
+	"Hilt" -> "Claymore";
+
+	"Bar" -> "Battle Axe Head" [label=8];
+	"Battle Axe Head" -> "Battle Axe";
+	"Haft" -> "Battle Axe";
+
+	"Bar" -> "Warhammer Head" [label=8];
+	"Warhammer Head" -> "Warhammer";
+	"Haft" -> "Warhammer";
+
+	"Bar" -> "Shield Boss" [label=2];
+	"Bar" -> "Shield Backing" [label=5];
+	"Shield Boss" -> "Shield";
+	"Shield Backing" -> "Shield";
+	"Bar" -> "Tower Shield Backing" [label=6];
+	"Shield Boss" -> "Tower Shield";
+	"Tower Shield Backing" -> "Tower Shield";
+
+	subgraph cluster_12 {
+		label="Machine Shop";
+		"Wrench";
+		"Rod";
+		"Gear";
+		"Spring";
+		"Spike";
+		"Crossbow Bow";
+		"Musket Round";
+		"Blunderbuss Barrel";
+		"Pistol Barrel";
+	}
+	subgraph cluster_12a {
+		label="Machine Shop / Stonemason";
+		"Bolt";
+	}
+	"Bar" -> "Wrench";
+	"Bar" -> "Rod";
+	"Bar" -> "Gear";
+	"Bar" -> "Spring";
+	"Bar" -> "Spike" [label=2];
+	"Bar" -> "Bolt";
+	"Bar" -> "Crossbow Bow" [label=3];
+	"Bar" -> "Musket Round";
+	"Bar" -> "Blunderbuss Barrel" [label=5];
+	"Bar" -> "Pistol Barrel" [label=5];
+
+	subgraph cluster_13 {
+		label="Engineer Shop";
+		"Axle";
+		"Gearbox";
+		"Lever";
+		"Pressure Plate";
+		"Mechanical Wall";
+		"Hatch";
+		"Handcrank";
+		"Spike Trap";
+		"Blade Trap";
+		"Trap Base";
+		"Mechanism Base";
+		"Crossbow";
+	}
+	"Rod" -> "Axle";
+	"Mechanism Base" -> "Gearbox";
+	"Gear" -> "Gearbox" [label=2];
+	"Mechanism Base" -> "Lever";
+	"Rod" -> "Lever";
+	"Mechanism Base" -> "Pressure Plate";
+	"Bar" -> "Pressure Plate";
+
+	"Mechanism Base" -> "Mechanical Wall";
+	"Bar" -> "Mechanical Wall" [label=2];
+	"Mechanism Base" -> "Hatch";
+	"Bar" -> "Hatch";
+	"Mechanism Base" -> "Handcrank";
+	"Rod" -> "Handcrank";
+
+	"Trap Base" -> "Spike Trap";
+	"Spike" -> "Spike Trap";
+	"Trap Base" -> "Blade Trap";
+	"Sword Blade" -> "Blade Trap";
+	"Mechanism Base" -> "Trap Base";
+	"Spring" -> "Trap Base";
+	"Gear" -> "Mechanism Base" [label=2];
+	"Spring" -> "Mechanism Base";
+	"Crossbow Bow" -> "Crossbow";
+	"Crossbow Stock" -> "Crossbow";
+
+//{
+//	rank=same;
+//	"Coal";
+//	"Log";
+//	"Fiber";
+//	"Straw";
+//	"Raw Stone";
+//	"Ore";
+//}
+
+//{
+//	rank=same;
+//	"Bolt of Cloth";
+//	"Bar";
+//	"Plank";
+//}
+
+}
