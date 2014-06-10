@@ -74,12 +74,16 @@ node [shape=record,width=.1,height=.1];
 		"Bed Frame";
 		"Four Poster Bed Frame";
 		"Wheelbarrow";
+		"Bellows";
 	}
 	subgraph cluster_4b {
 		label="Carpenter (Weapons)";
 		"Haft";
 		"Hilt";
 		"Wooden Shield";
+		"Crossbow Stock";
+		"Blunderbuss Stock";
+		"Pistol Stock";
 	}
 	"Plank" -> "Stick" [label="1/2"];
 	"Plank" -> "Loom" [label=4];
@@ -104,6 +108,10 @@ node [shape=record,width=.1,height=.1];
 	"Plank" -> "Four Poster Bed Frame" [label=4];
 	"Log" -> "Wheelbarrow" [label=4];
 	"Stick" -> "Wheelbarrow" [label=2];
+	"Plank" -> "Bellows" [label=2];
+	"Plank" -> "Crossbow Stock";
+	"Plank" -> "Blunderbuss Stock";
+	"Plank" -> "Pistol Stock";
 
 	subgraph cluster_5 {
 		label="Blacksmith";
@@ -278,20 +286,25 @@ node [shape=record,width=.1,height=.1];
 	"Bar" -> "Blunderbuss Barrel" [label=5];
 	"Bar" -> "Pistol Barrel" [label=5];
 
-	subgraph cluster_13 {
-		label="Engineer Shop";
+	subgraph cluster_13a {
+		label="Engineer Shop (Mechanisms)";
 		"Axle";
+		"Mechanism Base";
 		"Gearbox";
 		"Lever";
 		"Pressure Plate";
 		"Mechanical Wall";
 		"Hatch";
 		"Handcrank";
+		"Trap Base";
+		"Crossbow";
+		"Blunderbuss";
+		"Flintlock Pistol";
 		"Spike Trap";
 		"Blade Trap";
-		"Trap Base";
-		"Mechanism Base";
-		"Crossbow";
+	}
+	subgraph cluster_13b {
+		label="Engineer Shop (Weapons)";
 	}
 	"Rod" -> "Axle";
 	"Mechanism Base" -> "Gearbox";
@@ -318,22 +331,19 @@ node [shape=record,width=.1,height=.1];
 	"Spring" -> "Mechanism Base";
 	"Crossbow Bow" -> "Crossbow";
 	"Crossbow Stock" -> "Crossbow";
+	"Blunderbuss Barrel" -> "Blunderbuss";
+	"Blunderbuss Stock" -> "Blunderbuss";
+	"Pistol Barrel" -> "Flintlock Pistol";
+	"Pistol Stock" -> "Flintlock Pistol";
 
-//{
-//	rank=same;
-//	"Coal";
-//	"Log";
-//	"Fiber";
-//	"Straw";
-//	"Raw Stone";
-//	"Ore";
-//}
+	subgraph cluster_14 {
+		label="Metalsmith";
+		"Statue";
+		"Statuette";
+		"Commemorative Coin";
+	}
 
-//{
-//	rank=same;
-//	"Bolt of Cloth";
-//	"Bar";
-//	"Plank";
-//}
-
+	"Bar" -> "Statue" [label=4];
+	"Bar" -> "Statuette" [label=4];
+	"Bar" -> "Commemorative Coin" [label=4];
 }
